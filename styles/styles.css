@@ -4,9 +4,25 @@ html {
     font-family: sans-serif;
 }
 
-body {
-    margin: 0;
+html, body {
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+main {
+    flex-grow: 1;
+
+  /* or: align-self: center */
+
 }
+
+header, main, footer {
+    flex-shrink: 0;
+}
+
 
 article,
 aside,
@@ -247,15 +263,23 @@ html {
     height: 100%;
 }
 
-body {
-    min-height: 100%;
-    color: #333;
-    background-color: #fff;
-    margin: 0;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    line-height: 20px;
-}
+body::-webkit-scrollbar {
+    width: 12px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #2E2E2E;        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: linear-gradient(250.22deg, #FFFFFF -8.17%, #F1B31C 49.39%, #FFB500 106.36%);    /* color of the scroll thumb */
+    background: linear-gradient(250.22deg, #ffffff -8.17%, #F1B31C 49.39%, #c08d0c 106.36%);
+
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 1px solid linear-gradient(250.22deg, #FFFFFF -8.17%, #000000 49.39%, #FFB500 106.36%);;  /* creates padding around scroll thumb */
+  }
+  
+  
 
 img {
     max-width: 100%;
@@ -2177,11 +2201,15 @@ textarea.w-select {
     border-color: #3898ec;
 }
 
+
 body {
-    color: #000;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Oxygen, Fira Sans, Droid Sans, sans-serif;
-    font-size: 1rem;
-    line-height: 1.5;
+    min-height: 100vh;
+    color: #333;
+    background-color: #fff;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 20px;   
 }
 
 h1 {
@@ -3003,10 +3031,10 @@ figcaption {
 }
 
 .page-wrapper {
-    flex-flow: column;
-    justify-content: space-between;
     display: flex;
-    position: static;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .fs-styleguide_label {
@@ -4132,6 +4160,7 @@ figcaption {
     bottom: 0%;
     left: 0%;
     right: 0%;
+    margin-top: auto;
 }
 
 .footer_logo {
@@ -5084,8 +5113,16 @@ figcaption {
     display: flex;
 }
 
+
 .body {
     background-color: #f3f5fb;
+    flex-flow: column;
+    flex: 1;
+    justify-content: space-between;
+    align-self: auto;
+    align-items: stretch;
+    display: flex;
+    position: static;
 }
 
 .paragraph_banner {
@@ -5428,9 +5465,6 @@ figcaption {
     height: 100%;
 }
 
-.body-2 {
-    background-color: #fff;
-}
 
 .navigation {
     width: 100%;
@@ -5628,7 +5662,13 @@ figcaption {
     }
 
     .page-wrapper {
-        overflow: hidden;
+        flex-flow: column;
+        flex: 1;
+        justify-content: space-between;
+        align-self: auto;
+        align-items: stretch;
+        display: flex;
+        position: static;
     }
 
     .contact-form_component {
@@ -5638,6 +5678,7 @@ figcaption {
 
     .main-wrapper {
         overflow: hidden;
+        
     }
 
     .button.is-icon {
@@ -6285,11 +6326,6 @@ figcaption {
         justify-content: center;
         display: flex;
     }
-
-    .body {
-        background-color: rgba(0, 0, 0, 0);
-    }
-
     .about-page_wrapper {
         grid-column-gap: 0rem;
         grid-row-gap: 0rem;
